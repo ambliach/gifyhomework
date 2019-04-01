@@ -4,11 +4,12 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
   <title>Animal Buttons</title>
 </head>
 
 <body>
-  <div>
+  <div id="different-animal">
   <button data-animal="cat">meow</button>
   <button data-animal="dog">woof</button>
   <button data-animal="bird">chirp</button>
@@ -29,6 +30,7 @@ $("#input").on("click", function(event) {
 
   var newButton = $("<button>")
   newButton.text(userInput).attr("data-animal", userInput)
+  
   
 })
 
