@@ -9,30 +9,43 @@
 </head>
 
 <body>
-  <div id="different-animal">
-  <button data-animal="cat">meow</button>
-  <button data-animal="dog">woof</button>
-  <button data-animal="bird">chirp</button>
-</div>
-  <div id="gifs-appear-here">
- </div>
+  <div id="different-animal"></div>
+  <div id="gifs-appear-here"></div>
  <form action="/action_page.php">
-   <input class=inputField type="text" name="fname"><br>
+   <input id=inputField type="text" name="fname"><br>
   
   <input id=input type="submit" value="Submit">
 </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
 
-$("#input").on("click", function(event) {
-  event.preventDefault();
-  var userInput = $(".inputField").val().trim();
 
-  var newButton = $("<button>")
-  newButton.text(userInput).attr("data-animal", userInput)
+  var animalsarray = ["cat", "dog", "bird"];
+  
+  function renderButtons() {
+    $("#different-animal").empty();
+    for (var i = 0; i < animalsarray.length; i++) {
+      var a = $("<button>");
+        a.addClass("animals");
+        a.attr("data-name", animalsarray[i]);
+        a.text(animalsarray[i]);
+        $("#different-animal").append(a);
+        }
+      }
   
   
-})
+  $("#input").on("click", function(event) {
+  event.preventDefault();
+  var userInput = $("#inputField").val().trim();
+  animalsarray.push(userInput);
+  renderButtons();
+});
+
+renderButtons();
+  
+  
+
+ 
 
     // Adding click event listen listener to all buttons
     $("button").on("click", function() {

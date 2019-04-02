@@ -1,11 +1,12 @@
 #input {
-    position: absolute;
+    position: fixed;
     top: 50px;
     border: 3px solid green;
   }
 
  .inputField {
-    position: absolute;
+    position: fixed;
     top: 30px;
     border: 3px solid blueviolet;
   } 
+  
